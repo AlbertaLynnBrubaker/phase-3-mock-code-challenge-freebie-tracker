@@ -1,6 +1,10 @@
 Freebie.destroy_all
 Dev.destroy_all
 Company.destroy_all
+Freebie.reset_pk_sequence
+Dev.reset_pk_sequence
+Company.reset_pk_sequence
+Faker::UniqueGenerator.clear
 
 
 puts "Creating companies..."
@@ -21,9 +25,13 @@ puts "Creating freebies..."
 # * TODO: create freebies! Remember, a freebie belongs to a dev *
 # * and a freebie belongs to a company.                         *
 # ***************************************************************
-Freebie.create(item_name: "RTFM Hat", value: 4, dev_id: Dev.first.id, company_id: Company.first.id)
-Freebie.create(item_name: "WAI poster", value: 3, dev_id: Dev.fourth.id, company_id: Company.second.id)
-Freebie.create(item_name: "Did you ask the rubber duck? poster", value: 7, dev_id: Dev.fourth.id, company_id: Company.first.id)
-Freebie.create(item_name: "Stonks T-shirt", value: 3, dev_id: Dev.third.id, company_id: Company.fourth.id)
+Freebie.create(item_name: "RTFM Hat", value: 4, dev_id: Dev.all.sample.id, company_id: Company.all.sample.id)
+Freebie.create(item_name: "WAI poster", value: 3, dev_id: Dev.all.sample.id, company_id: Company.all.sample.id)
+Freebie.create(item_name: "Did you ask the rubber duck? poster", value: 7, dev_id: Dev.all.sample.id, company_id: Company.all.sample.id)
+Freebie.create(item_name: "Stonks T-shirt", value: 3, dev_id: Dev.all.sample.id, company_id: Company.all.sample.id)
+
+# 30.times do
+#   Freebie.create
+# end
 
 puts "Seeding done!"

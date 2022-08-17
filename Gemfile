@@ -20,4 +20,8 @@ gem "sqlite3", "~> 1.4"
 # https://github.com/jarmo/require_all
 gem "require_all"
 
+gem "faker"
+
+gem "activerecord-reset-pk-sequence"
+
 gem "pry"
